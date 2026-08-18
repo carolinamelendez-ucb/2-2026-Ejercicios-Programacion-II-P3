@@ -1,4 +1,4 @@
-//Ejercicio 3: Cuenta Bancaria
+//Ejercicio 3: Cuenta Bancaria (sin terminar)
 
 
 #include <iostream>
@@ -103,7 +103,7 @@ public:
 };
 
 int main() {
-    cout << "===== EJERCICIO 3: CUENTA BANCARIA (version parcial) =====" << endl << endl;
+    cout << "Titulo ingenioso para desviar la atencion" << endl << endl;
 
     Cliente cli1("V-12345678", "Ana Perez");
     return 0;

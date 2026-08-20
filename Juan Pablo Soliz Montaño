@@ -1,0 +1,147 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+enum class TipoRemitente { PARTICULAR, EMPRESA };
+enum class TipoEnvio { NORMAL, EXPRESS };
+
+string tipoRemitenteToString(TipoRemitente t) {
+    return (t == TipoRemitente::PARTICULAR) ? "PARTICULAR" : "EMPRESA";
+}
+
+string tipoEnvioToString(TipoEnvio t) {
+    return (t == TipoEnvio::NORMAL) ? "NORMAL" : "EXPRESS";
+}
+
+class Remitente {
+private:
+    string ci;
+    string nombre;
+    TipoRemitente tipoRemitente;
+
+public:
+    Remitente(string ci, string nombre)
+        : ci(ci), nombre(nombre), tipoRemitente(TipoRemitente::PARTICULAR) {
+    }
+
+    string getCi() const { return ci; }
+    string getNombre() const { return nombre; }
+    TipoRemitente getTipoRemitente() const { return tipoRemitente; }
+
+    void setTipoRemitente(TipoRemitente tipo) {
+        tipoRemitente = tipo;
+    }
+
+    void mostrarInfo() const {
+        cout << "  Remitente -> CI: " << ci
+            << " | Nombre: " << nombre
+            << " | Tipo: " << tipoRemitenteToString(tipoRemitente) << endl;
+    }
+};
+
+class Paquete {
+private:
+    string codigo;
+    double peso;
+    TipoEnvio tipoEnvio;
+
+public:
+    Paquete(string codigo, double peso, TipoEnvio tipoEnvio)
+        : codigo(codigo), peso(0.0), tipoEnvio(tipoEnvio) {
+        setPeso(peso);
+    }
+
+    string getCodigo() const { return codigo; }
+    double getPeso() const { return peso; }
+    TipoEnvio getTipoEnvio() const { return tipoEnvio; }
+
+    void setPeso(double nuevoPeso) {
+        if (nuevoPeso > 0) {
+            peso = nuevoPeso;
+        }
+    }
+
+    void setTipoEnvio(TipoEnvio tipo) {
+        tipoEnvio = tipo;
+    }
+
+    void mostrarInfo() const {
+        cout << "  Paquete -> Codigo: " << codigo
+            << " | Peso: " << peso << " kg"
+            << " | Tipo Envio: " << tipoEnvioToString(tipoEnvio) << endl;
+    }
+};
+
+class Envio {
+private:
+    int numero;
+    string destino;
+    Remitente* remitente;
+    Paquete* paquete;
+    double distancia;
+    double costo;
+
+    void actualizarCosto() {
+        costo = calcularCostoFinal();
+    }
+
+public:
+    Envio(int numero, string destino, Remitente* remitente, Paquete* paquete, double distancia)
+        : numero(numero), destino(destino), remitente(remitente), paquete(paquete),
+        distancia(0.0), costo(0.0) {
+        setDistancia(distancia);
+    }
+
+    int getNumero() const { return numero; }
+    string getDestino() const { return destino; }
+    double getDistancia() const { return distancia; }
+    double getCosto() const { return costo; }
+
+    void setDistancia(double nuevaDistancia) {
+        if (nuevaDistancia > 0) {
+            distancia = nuevaDistancia;
+            actualizarCosto();
+        }
+    }
+
+    void cambiarTipoEnvio(TipoEnvio nuevoTipo) {
+        paquete->setTipoEnvio(nuevoTipo);
+        actualizarCosto();
+    }
+
+    double calcularCostoBase() const {
+        return paquete->getPeso() * distancia * 0.50;
+    }
+
+    double calcularCostoFinal() const {
+        double costoFinal = calcularCostoBase();
+
+        if (paquete->getTipoEnvio() == TipoEnvio::EXPRESS) {
+            costoFinal *= 1.25;
+        }
+
+        if (remitente->getTipoRemitente() == TipoRemitente::EMPRESA) {
+            costoFinal *= 0.90;
+        }
+
+        double peso = paquete->getPeso();
+        if (peso > 10.0) {
+            costoFinal += (peso - 10.0) * 5.0;
+        }
+
+        return costoFinal;
+    }
+
+    void mostrarInfo() const {
+        cout << "  Envio -> Numero: " << numero
+            << " | Destino: " << destino
+            << " | Distancia: " << distancia << " km"
+            << " | Costo: " << calcularCostoFinal() << endl;
+        remitente->mostrarInfo();
+        paquete->mostrarInfo();
+    }
+};
+
+int main() {
+    return 0;
+}

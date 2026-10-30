@@ -1,0 +1,16 @@
+ *  Executing task: C/C++: g++.exe build active file 
+
+Starting build...
+cmd /c chcp 65001>nul && C:\msys64\ucrt64\bin\g++.exe -fdiagnostics-color=always -g "C:\Users\Carolina\Documents\Docencia Cato\Evaluaciones estudiantes 2026-II\Unidad 3\Labo 1 - Jueves\GabrielArce-AlejandroBarrientos\LaboEnParejasGaboAle.cpp" -o "C:\Users\Carolina\Documents\Docencia Cato\Evaluaciones estudiantes 2026-II\Unidad 3\Labo 1 - Jueves\GabrielArce-AlejandroBarrientos\LaboEnParejasGaboAle.exe"
+C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\Carolina\AppData\Local\Temp\cc4A3jpt.o: in function `SistemaParqueo::registrarEstacionamiento(Espacio*)':
+C:/Users/Carolina/Documents/Docencia Cato/Evaluaciones estudiantes 2026-II/Unidad 3/Labo 1 - Jueves/GabrielArce-AlejandroBarrientos/SistemaParqueo.h:48:(.text$_ZN14SistemaParqueo24registrarEstacionamientoEP7Espacio[_ZN14SistemaParqueo24registrarEstacionamientoEP7Espacio]+0x12e): undefined reference to `Excepcion::~Excepcion()'
+C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:/Users/Carolina/Documents/Docencia Cato/Evaluaciones estudiantes 2026-II/Unidad 3/Labo 1- Jueves/GabrielArce-AlejandroBarrientos/SistemaParqueo.h:48:(.text$_ZN14SistemaParqueo24registrarEstacionamientoEP7Espacio[_ZN14SistemaParqueo24registrarEstacionamientoEP7Espacio]+0x155): undefined reference to `Excepcion::~Excepcion()'
+C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\Carolina\AppData\Local\Temp\cc4A3jpt.o: in function `SistemaParqueo::registrarVehiculo(Vehiculo*)':
+C:/Users/Carolina/Documents/Docencia Cato/Evaluaciones estudiantes 2026-II/Unidad 3/Labo 1 - Jueves/GabrielArce-AlejandroBarrientos/SistemaParqueo.h:70:(.text$_ZN14SistemaParqueo17registrarVehiculoEP8Vehiculo[_ZN14SistemaParqueo17registrarVehiculoEP8Vehiculo]+0x12e): undefined reference to `Excepcion::~Excepcion()'
+C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:/Users/Carolina/Documents/Docencia Cato/Evaluaciones estudiantes 2026-II/Unidad 3/Labo 1- Jueves/GabrielArce-AlejandroBarrientos/SistemaParqueo.h:70:(.text$_ZN14SistemaParqueo17registrarVehiculoEP8Vehiculo[_ZN14SistemaParqueo17registrarVehiculoEP8Vehiculo]+0x155): undefined reference to `Excepcion::~Excepcion()'
+collect2.exe: error: ld returned 1 exit status
+
+Build finished with error(s).
+
+ *  The terminal process terminated with exit code: -1. 
+ *  Terminal will be reused by tasks, press any key to close it. 

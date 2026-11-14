@@ -1,0 +1,37 @@
+﻿=== RESULTADO DE COMPILACION ===
+Fecha: 14/11/2026 11:22 GMT-4
+Estudiante: Claudia Sandoval Fernández (113049)
+Ejercicio: Peluquería Canina - Sistema de Gestión
+
+COMANDO: g++ -std=c++17 -Wall -Wextra mainSistema.cpp Exception.cpp -o ejercicio
+
+RESULTADO: FALLO (No compila)
+
+ERRORES PRINCIPALES (primeros 10):
+1. ListaGenerica.h:30:9 - error: expected ';' before '}' token
+   Falta punto y coma en destructor
+
+2. ListaGenerica.h:22:40 - error: cannot convert 'Perro**' to 'ListaGenerica<Perro>*' 
+   Tipo incorrecto de variable listaElementos
+
+3. Servicio.h:37:16 - error: 'std::string Servicio::getCodigo()' cannot be overloaded
+   Método getCodigo definido dos veces
+
+4. SistemaPeluqueria.h:31:77 - error: converting to 'bool' from 'std::nullptr_t' requires direct-initialization
+   Uso de operador =! en lugar de !=
+
+5. SistemaPeluqueria.h:31:61 - error: invalid use of 'void'
+   agregarElementos() no retorna void correctamente
+
+6. ListaGenerica.h:47:67 - error: array subscript is not an integer
+   Acceso incorrecto a array
+
+7. Perro.h:47-49 - error: ListaGenerica:agregarPerro();
+   Sintaxis incorrecta (dos puntos en lugar de dos puntos dobles)
+
+8. Atencion.h:19-21 - error: ListaGenerica:agregarAtencion();
+   Sintaxis incorrecta
+
+TOTAL: 28 errores de compilación
+
+CONCLUSION: Código no compilable - Nota 0/75
